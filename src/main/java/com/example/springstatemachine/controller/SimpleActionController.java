@@ -18,7 +18,10 @@ public class SimpleActionController {
 
     @GetMapping("/push/{actionType}")
     public void add(@PathVariable String actionType) {
+        this.stateMachine.start();
+
         this.stateMachine.sendEvent(Events.AUTHORIZE.toString());
+
         System.out.println(this.stateMachine);
     }
 }
