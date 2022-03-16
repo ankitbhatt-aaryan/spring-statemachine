@@ -19,7 +19,9 @@ public class SimpleStateMachineConfig extends StateMachineConfigurerAdapter<Stri
         states
                 .withStates()
                 .initial(States.INITIATED.toString())
-                .state(States.AUTHORIZED.toString())
+                .stateEntry(States.AUTHORIZED.toString(), SimpleSMActions.authorizedStateEntryAction())
+                .stateDo(States.AUTHORIZED.toString(), SimpleSMActions.authorizedStateProcessAction())
+                .stateExit(States.AUTHORIZED.toString(), SimpleSMActions.authorizedStateExitAction())
                 .state(States.VALIDATED.toString())
                 .state(States.PROCESSED.toString())
                 .end(States.COMPLETED.toString());
