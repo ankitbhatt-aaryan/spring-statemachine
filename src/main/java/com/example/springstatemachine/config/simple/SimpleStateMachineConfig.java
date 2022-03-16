@@ -28,13 +28,13 @@ public class SimpleStateMachineConfig extends StateMachineConfigurerAdapter<Stri
     @Override
     public void configure(StateMachineTransitionConfigurer<String, String> transitions) throws Exception {
         transitions
-                .withExternal().source(States.INITIATED.toString()).target(States.AUTHORIZED.toString()).event(Events.AUTHORIZE.toString())
+                .withExternal().source(States.INITIATED.toString()).target(States.AUTHORIZED.toString()).event(Events.AUTHORIZE.toString()).action(SimpleSMActions.authorizeAction())
                 .and()
                 .withExternal().source(States.AUTHORIZED.toString()).target(States.VALIDATED.toString()).event(Events.VALIDATE.toString())
                 .and()
                 .withExternal().source(States.VALIDATED.toString()).target(States.PROCESSED.toString()).event(Events.PROCESS.toString())
                 .and()
-                .withExternal().source(States.PROCESSED.toString()).target(States.COMPLETED.toString()).event(Events.COMPLETE.toString());
+                .withExternal().source(States.PROCESSED.toString()).target(States.COMPLETED.toString()).event(Events.COMPLETE.toString()).action(SimpleSMActions.completeAction());
     }
 
     @Override
