@@ -3,7 +3,7 @@ package com.example.springstatemachine.config.simple;
 import org.springframework.statemachine.StateContext;
 import org.springframework.statemachine.annotation.*;
 
-@WithStateMachine
+//@WithStateMachine
 public class SimpleSMAction2 {
     @OnTransition
     public void anyTransition(StateContext<String, String> stateContext) {
