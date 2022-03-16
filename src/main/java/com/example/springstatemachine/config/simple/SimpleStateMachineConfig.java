@@ -45,17 +45,17 @@ public class SimpleStateMachineConfig extends StateMachineConfigurerAdapter<Stri
 
             @Override
             public void eventNotAccepted(Message<String> event) {
-                System.out.println("SIMPLE************** event not accepted: " + event);
+                System.out.println("SIMPLE*************** event not accepted: " + event);
             }
 
             @Override
             public void transition(Transition<String, String> transition) {
-                System.out.println("SIMPLE************** transition : " + transition.getSource().getId() + " -> " + transition.getTarget().getId());
+                System.out.println("SIMPLE*************** transition : " + transition.getSource().getId() + " -> " + transition.getTarget().getId());
             }
 
             @Override
             public void stateChanged(State<String, String> from, State<String, String> to) {
-                System.out.println("SIMPLE************** state changed :" + from.getId()+ " -> " + to.getId());
+                System.out.println("SIMPLE*************** state changed :" + from.getId()+ " -> " + to.getId());
             }
 
         };
